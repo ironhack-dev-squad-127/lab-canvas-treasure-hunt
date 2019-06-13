@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+body {
+  color: white;
+  font-family: 'Indie Flower', cursive;
+  background-image: url(images/bg-map.jpg);
+  background-size: cover;
+}
+
+.container>*  {
+ padding: 30px;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+span {
+  font-size: 3vw;
+}
