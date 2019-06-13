@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* this height is given so that we can center the canvas in the screen */
+  height: 100vh;
+  /* We give a margin 0 so that the page doesnt scroll, by default it comes with it */
+  margin: 0;
+}
+
+canvas {
+  border: 2px solid black;
+  /* this max dimensions help us create a canvas that always fits in the screen */
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.score {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px
+}
