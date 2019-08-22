@@ -4,7 +4,20 @@ class Character {
     this.col = 0;
     this.row = 0;
     this.direction = 'down';
-    this.image = new Image();
+    this.upImage = new Image();
+    this.upImage.src = 'images/character-up.png';
+    this.upImage.addEventListener('load', event => {this.draw(ctx);});
+    this.downImage = new Image();
+    this.downImage.src = 'images/character-down.png';
+    this.downImage.addEventListener('load', event => {this.draw(ctx);});
+    this.leftImage = new Image();
+    this.leftImage.src = 'images/character-left.png';
+    this.leftImage.addEventListener('load', event => {this.draw(ctx);});
+    this.rightImage = new Image();
+    this.rightImage.src = 'images/character-right.png';
+    this.rightImage.addEventListener('load', event => {this.draw(ctx);});
+    this.image = this.downImage;
+    
   }
 
   moveUp() {
@@ -35,16 +48,16 @@ class Character {
     this.image = new Image();
     switch (this.direction) {
       case 'up':
-        this.image.src = 'images/character-up.png';
+        this.image = this.upImage;
         break;
       case 'down':
-        this.image.src = 'images/character-down.png';
+        this.image = this.downImage;
         break;
       case 'left':
-        this.image.src = 'images/character-left.png';
+        this.image = this.leftImage;
         break;
       case 'right':
-        this.image.src = 'images/character-right.png';
+        this.image = this.rightImage;
         break;
     }
 
@@ -53,8 +66,8 @@ class Character {
     let dwidth = width/numberOfColumns;
     let dheight = height/numberOfRows;
 
-    this.image.addEventListener('load', event => {
-      context.drawImage(this.image, dx, dy, dwidth, dheight);
-    }) 
+    // this.image.addEventListener('load', event => {
+    context.drawImage(this.image, dx, dy, dwidth, dheight);
+    // }) 
   }
 }

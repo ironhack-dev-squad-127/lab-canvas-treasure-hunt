@@ -3,6 +3,9 @@ class Treasure {
   constructor() {
     this.col = 0;
     this.row = 0;
+    this.image = new Image();
+    this.image.src = 'images/treasure.png';
+    this.image.addEventListener('load', event => {this.draw(ctx);}) 
   }
 
   setRandomPosition(maxRows, maxCols) {
@@ -13,14 +16,12 @@ class Treasure {
   }
 
   draw(context) {
-    let treasureImg = new Image();
-    treasureImg.src = 'images/treasure.png';
     let dx = this.col*width/numberOfColumns;
     let dy = this.row*height/numberOfRows;
     let dwidth = width/numberOfColumns;
     let dheight = height/numberOfRows;
-    treasureImg.addEventListener('load', event => {
-      context.drawImage(treasureImg, dx, dy, dwidth, dheight);
-    }) 
+    // this.image.addEventListener('load', event => {
+    context.drawImage(this.image, dx, dy, dwidth, dheight);
+    // }) 
   }
 }

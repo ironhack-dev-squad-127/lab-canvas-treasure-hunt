@@ -91,6 +91,11 @@ function drawEverything(player, treasure) {
 const player = new Character();
 const treasure = new Treasure();
 treasure.setRandomPosition(numberOfRows, numberOfColumns);
+// Initial draw with event listener
+document.addEventListener('load', function () {
+  player.draw(ctx);
+  treasure.draw(ctx);
+});
 drawEverything(player, treasure);
 
 
