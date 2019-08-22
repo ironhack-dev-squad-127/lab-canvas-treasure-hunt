@@ -5,18 +5,12 @@ class Character {
       this.image = new Image();
       this.image.src = "images/character-down.png";
     
-    }
+      }
+
   
   drawPlayer(ctx){ 
-    //this.image.addEventListener('load', function () {
-    //ctx.drawImage(this.image, this.col, this.row);
-    this.image.addEventListener('load', function () {    
-        //const pattern = ctx.createPattern(this.image, 'no-repeat');
-    
-      
-        //ctx.fillRect(50, 50);
-        ctx.drawImage(this.image, this.col, this.row);
-      }); }
+      ctx.drawImage(this.image, this.row, this.col);
+     }
   
   moveUp(){
   
@@ -25,8 +19,7 @@ class Character {
   
   moveRight(){
     this.row += 50
-  
-  
+
   
   }
   
@@ -36,6 +29,28 @@ class Character {
   }
   
   moveDown(){
-    this.col += 50
-  
-  }}
+    this.col += 50  
+  }
+}
+
+
+
+  class Treasure {
+    constructor(col, row) {
+      this.col = col;
+      this.row = row;
+      this.image = new Image();
+      this.image.src = "images/treasure.png";
+
+    }
+
+  drawTreasure(ctx){
+    ctx.drawImage(this.image, this.row, this.col, 50, 50);
+  }
+
+  setRandomPosition(){
+    this.col = Math.floor(Math.random() * 10) * 50
+    this.row = Math.floor(Math.random() * 10) * 50
+  }
+
+  }
