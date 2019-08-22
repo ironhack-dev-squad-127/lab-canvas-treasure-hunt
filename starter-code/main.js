@@ -29,7 +29,7 @@ class Character {
         this.col = col;
     }
     
-    moveUp() {
+    moveUp(up) {
         this.row === 0 ? this.row: this.row -= rowMovement ;
         return this.row;
     }
@@ -49,7 +49,7 @@ class Character {
     }
 };
 
-const player = new Character(0,0);
+const player = new Character(Math.floor(Math.random())*(height - height/10), Math.floor(Math.random())*(width - width/10));
 
 const drawPlayer = () => {
     
@@ -67,64 +67,19 @@ const drawPlayer = () => {
 
     imageDown.addEventListener('load', function () {
     
-        ctx.drawImage(imageDown, player.row, player.col ,imageDown.width , imageDown.height);
+        ctx.drawImage(imageDown, 0,0 ,imageDown.width , imageDown.height);
     });
 }
-drawPlayer(player); 
 
 
-
-
-class Treasure {
-  constructor(row, col) {
-      this.row = row;    
-      this.col = col;
-  } 
-  setRandomPosition(){
-    this.col = Math.floor(Math.random()*10)*width/10;
-    this.row = Math.floor(Math.random()*10)*height/10;
-  }
- 
-};
-
-const treasure = new Treasure(Math.floor(Math.random()*10)*width/10, Math.floor(Math.random()*10)*height/10);
-
-const drawTreasure = () => {
     
-    const treasureImage = new Image();
-    treasureImage.src = "./images/treasure.png";
 
-    treasureImage.addEventListener('load', function () {
-        ctx.drawImage(treasureImage, treasure.row, treasure.col ,width/10 ,height/10);
-    });
+drawPlayer(player);
+
+function drawEverything() {
+  drawGrid()
+  // drawPlayer()
+  // drawTreasure()
 }
-drawTreasure(); 
 
-
-document.onkeydown = function(e) {
-    e.preventDefault() // Stop the default behavior (moving the screen to the left/up/right/down)
-    switch (e.keyCode) {
-      case 37: 
-        player.moveleft
-        break
-      case 38: 
-        console.log(player.moveUp)  
-        break
-      case 39: 
-        player.moveRight
-        break
-      case 40: 
-        console.log(player.moveDown)
-        break
-    }
-  }
-
-
-
-// function drawEverything() {
-//   drawGrid(),
-//   drawPlayer(),
-//   drawTreasure(),
-//   context.clearRect(0, 0, width, height);
-// }
-// drawEverything()
+drawEverything()
