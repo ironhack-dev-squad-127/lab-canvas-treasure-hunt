@@ -65,27 +65,27 @@ function drawGrid() {
 //   }) 
 // }
 
-// Iteration 4
-function drawTreasure(treasure) {
-  let row = treasure.row;
-  let col = treasure.col;
-  treasureImg = new Image();
-  treasureImg.src = 'images/treasure.png';
-  let dx = col*width/numberOfColumns;
-  let dy = row*height/numberOfRows;
-  let dwidth = width/numberOfColumns;
-  let dheight = height/numberOfRows;
-  treasureImg.addEventListener('load', event => {
-    ctx.drawImage(treasureImg, dx, dy, dwidth, dheight);
-  }) 
-}
+// // Iteration 4
+// function drawTreasure(treasure) {
+//   let row = treasure.row;
+//   let col = treasure.col;
+//   treasureImg = new Image();
+//   treasureImg.src = 'images/treasure.png';
+//   let dx = col*width/numberOfColumns;
+//   let dy = row*height/numberOfRows;
+//   let dwidth = width/numberOfColumns;
+//   let dheight = height/numberOfRows;
+//   treasureImg.addEventListener('load', event => {
+//     ctx.drawImage(treasureImg, dx, dy, dwidth, dheight);
+//   }) 
+// }
 
 
 
 function drawEverything(player, treasure) {
   drawGrid();
-  player.draw(ctx, numberOfRows, numberOfColumns);
-  drawTreasure(treasure);
+  player.draw(ctx);
+  treasure.draw(ctx);
 }
 
 const player = new Character();

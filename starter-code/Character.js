@@ -31,7 +31,7 @@ class Character {
     if (this.col>9) this.col = 9;
   }
 
-  draw(context, numberOfRows, numberOfColumns) {
+  draw(context) {
     this.image = new Image();
     switch (this.direction) {
       case 'up':
