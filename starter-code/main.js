@@ -33,37 +33,37 @@ function drawGrid() {
 }
 
 // Iteration 3
-function drawPlayer(player) {
-  let row = player.row;
-  let col = player.col;
+// function drawPlayer(player) {
+//   let row = player.row;
+//   let col = player.col;
 
-  playerImg = new Image();
+//   playerImg = new Image();
 
-  let dir = player.direction;
-  switch (dir) {
-    case 'up':
-      playerImg.src = 'images/character-up.png';
-      break;
-    case 'down':
-      playerImg.src = 'images/character-down.png';
-      break;
-    case 'left':
-      playerImg.src = 'images/character-left.png';
-      break;
-    case 'right':
-      playerImg.src = 'images/character-right.png';
-      break;
-  }
+//   let dir = player.direction;
+//   switch (dir) {
+//     case 'up':
+//       playerImg.src = 'images/character-up.png';
+//       break;
+//     case 'down':
+//       playerImg.src = 'images/character-down.png';
+//       break;
+//     case 'left':
+//       playerImg.src = 'images/character-left.png';
+//       break;
+//     case 'right':
+//       playerImg.src = 'images/character-right.png';
+//       break;
+//   }
 
-  let dx = col*width/numberOfColumns;
-  let dy = row*height/numberOfRows;
-  let dwidth = width/numberOfColumns;
-  let dheight = height/numberOfRows;
+//   let dx = col*width/numberOfColumns;
+//   let dy = row*height/numberOfRows;
+//   let dwidth = width/numberOfColumns;
+//   let dheight = height/numberOfRows;
 
-  playerImg.addEventListener('load', event => {
-    ctx.drawImage(playerImg, dx, dy, dwidth, dheight);
-  }) 
-}
+//   playerImg.addEventListener('load', event => {
+//     ctx.drawImage(playerImg, dx, dy, dwidth, dheight);
+//   }) 
+// }
 
 // Iteration 4
 function drawTreasure(treasure) {
@@ -84,7 +84,7 @@ function drawTreasure(treasure) {
 
 function drawEverything(player, treasure) {
   drawGrid();
-  drawPlayer(player);
+  player.draw(ctx, numberOfRows, numberOfColumns);
   drawTreasure(treasure);
 }
 
