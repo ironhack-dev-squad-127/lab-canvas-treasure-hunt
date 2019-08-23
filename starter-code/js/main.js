@@ -26,37 +26,32 @@ for (let y = 0; y <= width; y=y+50) {
       }
 }
 
-function drawEverything() {
-    ctx.clearRect(0,0,width,height);
-    drawGrid();
-    player.draw(ctx);
-    treasure.draw(ctx);
-    window.requestAnimationFrame(drawEverything);
-    }
-
-function update(keyCode){
-    // document.onkeydown = function(e) {
-        // e.preventDefault() // Stop the default behavior (moving the screen to the left/up/right/down)
-        switch (keyCode) {
+// function update(keyCode){
+     document.onkeydown = function(e) {
+         e.preventDefault() // Stop the default behavior (moving the screen to the left/up/right/down)
+        switch (e.keyCode) {
           case 37: player.moveLeft(); break;
           case 38: player.moveUp(); break;
           case 39: player.moveRight(); break;
           case 40: player.moveDown(); break;
-        }
-if(player.col === treasure.col && player.row === treasure.row){
-    treasure.setRandomPosition();
-}
-}
- 
-setTimeout(() => {drawEverything()}, 500);
- 
+      
+}}
 
-  document.onkeydown = function(e) {
-    e.preventDefault();
-    update(e.keyCode);
-    drawEverything();
+  function drawEverything() {
+    ctx.clearRect(0,0,width,height);
+    drawGrid();
+    player.draw(ctx);
+    if((player.col)/50 === treasure.col && (player.row) / 50 === treasure.row){
+      // setInterval(() => {drawEverything()}, 100);
+       treasure.setRandomPosition();
+    }
+    else{
+    treasure.draw(ctx);
   }
+    window.requestAnimationFrame(drawEverything);
+    }
 
+    drawEverything();
  
 
 

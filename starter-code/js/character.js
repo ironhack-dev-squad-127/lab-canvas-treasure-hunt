@@ -6,14 +6,9 @@ class Character{
         this.image.src = "images/character-down.png";
     }
 
-    draw(ctx) 
-    // if(player.col === treasure.col && player.row === treasure.row){
-    //     treasure.setRandomPosition();
-    // }
-    {
-            ctx.drawImage(this.image, this.col, this.row, this.image.width, this.image.height);
-        }
-        
+    draw(ctx) {
+      ctx.drawImage(this.image, this.col, this.row, this.image.width, this.image.height);
+    }
     moveUp(){
         this.row > 0 ? this.row -= 50 : this.row;
         console.log("KEY PRESSED");
