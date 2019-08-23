@@ -1,6 +1,6 @@
 // Iteration 2
 class Character {
-  constructor(initialCol,initalRow,imgPaths) {
+  constructor(initialCol ,initalRow ,imgPaths) {
     this.col = initialCol
     this.row = initalRow
     this.orientation = 'down'
