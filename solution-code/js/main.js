@@ -7,6 +7,18 @@ var height = canvas.height
 var NB_OF_TILES = 10
 var TILE_SIZE = width / NB_OF_TILES
 
+// Iteration 1
+function drawGrid() {
+}
+
+function drawEverything() {
+  drawGrid()
+  // drawPlayer()
+  // drawTreasure()
+}
+
+drawEverything()
+
 // Iteration 2
 // var player = new Character(0,0,[
 //   'images/character-left.png',
