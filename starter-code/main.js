@@ -14,7 +14,7 @@ class Character {
     this.x = x;
     this.y = y;
     this.image = new Image();
-    this.image.onload=imageOnLoad;
+    this.image.onload = imageOnLoad;
     this.image.src = "images/character-down.png";
     this.image.alt = "P";
     this.score = 0;
@@ -55,23 +55,18 @@ class Character {
   }
 }
 
-function imageOnLoad(){
-  drawEverything();
-}
-
 class Treasure {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+  constructor() {
+    this.x = 50 * Math.floor(Math.random() * 10);
+    this.y = 50 * Math.floor(Math.random() * 10);
     this.image = new Image();
     this.image.onload = imageOnLoad;
     this.image.src = "images/treasure.png";
     this.image.alt = "T";
   }
   setRandomPosition() {
-    const max = 500 / 50;
-    this.x = 50 * Math.floor(Math.random() * max);
-    this.y = 50 * Math.floor(Math.random() * max);
+    this.x = 50 * Math.floor(Math.random() * 10);
+    this.y = 50 * Math.floor(Math.random() * 10);
 
     return this.x, this.y;
   }
@@ -81,10 +76,13 @@ class Treasure {
   }
 }
 
+function imageOnLoad() {
+  drawEverything();
+}
+
 let player = new Character(0, 0);
 let player2 = new Character(450, 450);
 let treasure = new Treasure();
-treasure.setRandomPosition();
 
 // Iteration 1
 function drawGrid() {
@@ -170,7 +168,6 @@ function endGameCheck() {
     newGame();
   }
 }
-
 
 document.onkeydown = function(e) {
   e.preventDefault(); // Stop the default behavior (moving the screen to the left/up/right/down)
