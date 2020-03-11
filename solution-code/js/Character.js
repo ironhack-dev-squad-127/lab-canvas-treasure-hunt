@@ -3,7 +3,7 @@ class Character {
   constructor(initialCol,initalRow,imgPaths) {
     this.col = initialCol
     this.row = initalRow
-    this.orientation = 'down'
+    this.orientation = "up"
     this.score = 0
 
     // Save all the images in the character 
@@ -16,18 +16,18 @@ class Character {
   }
   moveUp(){
     this.row--
-    this.orientation = 'up'
+    this.orientation = "up"
   }
   moveDown(){
     this.row++
-    this.orientation = 'down'
+    this.orientation = "down"
   }
   moveLeft(){
     this.col--
-    this.orientation = 'left'
+    this.orientation = "left"
   }
   moveRight(){
     this.col++
-    this.orientation = 'right'
+    this.orientation = "right"
   }
 }
