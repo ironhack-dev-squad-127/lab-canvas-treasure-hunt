@@ -24,17 +24,20 @@ function drawGrid() {
 
 function drawEverything() {
   drawGrid()
+
   // drawPlayer()
   // drawTreasure()
 }
 drawEverything();
 
 let player = new Character(0,0);// (0,0) = Initial position;
+let treasure = new Treasure(0,0);
 player.moveDown() // Increase by 1 the value of player.row
 player.moveDown() // Increase by 1 the value of player.row
 player.moveRight() // Increase by 1 the value of player.col
 console.log(player.col, player.row) // => 1,2
 drawPlayer(player);
+drawTreasure();
 
 
 function drawPlayer(player){
@@ -42,6 +45,7 @@ function drawPlayer(player){
   let image = new Image();
   ctx.beginPath();
   console.log(player.orientation);
+
   if(player.orientation==="up"){
     console.log("up");
     image.src= "character-up.png"
@@ -58,8 +62,21 @@ function drawPlayer(player){
   else if(player.orientation==="left"){
     console.log("left");
     image.src= "character-left.png"
-  } 
-  ctx.drawImage(image,20,20,50,50)
+  }
+   image.onload = function() {
+     ctx.drawImage(image,100,100,50,50)
+   }
   console.log("drawImagecalled")
-  console.log("drawImagecalled")
+}
+
+function drawTreasure(){
+  let image = new Image();
+  console.log("Drawing_treasure");
+
+  image.src="treasure.png"
+
+  image.onload = function() {
+    ctx.drawImage(image,treasure.col,treasure.row,50,50)
+  }
+
 }
