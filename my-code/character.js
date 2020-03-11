@@ -10,7 +10,7 @@ moveUp(){
 }
 moveRight(){
     this.col++;
-    this.orientation="rigth"
+    this.orientation="right"
 }
 moveDown(){
     this.row++;

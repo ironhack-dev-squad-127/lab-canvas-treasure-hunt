@@ -15,7 +15,7 @@ var TILE_SIZE = width / NB_OF_TILES
 //   'images/character-down.png',
 // ])
 var player = new Character(0,0,{
-  left: 'images/character-left.png',
+  left: '/',
   up: 'images/character-up.png',
   right: 'images/character-right.png',
   down: 'images/character-down.png',

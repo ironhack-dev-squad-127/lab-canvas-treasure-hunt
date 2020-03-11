@@ -44,19 +44,22 @@ function drawPlayer(player){
   console.log(player.orientation);
   if(player.orientation==="up"){
     console.log("up");
-    image.src= "./solution-code/images/character-up.png"
+    image.src= "character-up.png"
   }
   else if(player.orientation==="down"){
     console.log("down");
-    image.src= "./solution-code/images/character-down.png"
+    image.src= "character-down.png"
   }
   else if(player.orientation==="right"){
-    console.log("right");
-    image.src= "./solution-code/images/character-right.png"
+    console.log("I am inside right");
+    image.src= "character-right.png"
+    console.log(image);
   }
   else if(player.orientation==="left"){
     console.log("left");
-    image.src= "./solution-code/images/character-left.png"
+    image.src= "character-left.png"
   } 
-  ctx.drawImage(image,player.row,player.col)
+  ctx.drawImage(image,20,20,50,50)
+  console.log("drawImagecalled")
+  console.log("drawImagecalled")
 }
