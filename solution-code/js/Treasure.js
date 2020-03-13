@@ -4,7 +4,6 @@ class Treasure {
     this.maxCol = maxCol
     this.maxRow = maxRow
     this.setRandomPosition() // to set `this.col` and `this.row`
-
     this.img = new Image()
     this.img.src = src
   }
