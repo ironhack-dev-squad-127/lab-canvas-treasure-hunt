@@ -1,8 +1,13 @@
 // main.js
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
-var width = canvas.width;
-var height = canvas.height;
+let player = new Character(450,200);// (0,0) = Initial position;
+let treasure = new Treasure(0,0);
+var $canvas = document.querySelector('canvas');
+var ctx = $canvas.getContext('2d');
+var width = $canvas.width;
+var height = $canvas.height;
+console.log(player)
+console.log(treasure)
+drawEverything();
 
 // Iteration 1
 function drawGrid() {
@@ -22,61 +27,67 @@ function drawGrid() {
   // TODO: write the code of the function
 }
 
-function drawEverything() {
-  drawGrid()
-
-  // drawPlayer()
-  // drawTreasure()
-}
-drawEverything();
-
-let player = new Character(0,0);// (0,0) = Initial position;
-let treasure = new Treasure(0,0);
-player.moveDown() // Increase by 1 the value of player.row
-player.moveDown() // Increase by 1 the value of player.row
-player.moveRight() // Increase by 1 the value of player.col
-console.log(player.col, player.row) // => 1,2
-drawPlayer(player);
-drawTreasure();
-
-
 function drawPlayer(player){
   console.log("draw player called");
-  let image = new Image();
+
   ctx.beginPath();
-  console.log(player.orientation);
 
   if(player.orientation==="up"){
-    console.log("up");
-    image.src= "character-up.png"
+    player.image.src= "character-up.png";
   }
   else if(player.orientation==="down"){
-    console.log("down");
-    image.src= "character-down.png"
+    player.image.src= "character-down.png";
   }
   else if(player.orientation==="right"){
-    console.log("I am inside right");
-    image.src= "character-right.png"
-    console.log(image);
+    player.image.src= "character-right.png";
   }
   else if(player.orientation==="left"){
-    console.log("left");
-    image.src= "character-left.png"
+    player.image.src= "character-left.png";
   }
-   image.onload = function() {
-     ctx.drawImage(image,100,100,50,50)
+   player.image.onload = function() {
+     
+  console.log(player);
+     ctx.drawImage(player.image,player.x,player.y,50,50);
    }
-  console.log("drawImagecalled")
 }
 
-function drawTreasure(){
-  let image = new Image();
+function drawTreasure(treasure){
+  ctx.beginPath();
   console.log("Drawing_treasure");
-
-  image.src="treasure.png"
-
-  image.onload = function() {
-    ctx.drawImage(image,treasure.col,treasure.row,50,50)
+  console.log(treasure);
+  treasure.image.onload = function() {
+    console.log("Drawing_treasure2");
+    console.log(treasure);
+    ctx.drawImage(treasure.image,treasure.x,treasure.y,50,50);
   }
-
+  ctx.closePath();
 }
+
+function drawEverything() {
+  ctx.clearRect(0,0,width,height);
+  drawGrid();
+  drawPlayer(player);
+  drawTreasure(treasure);
+}
+
+  document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37: 
+        console.log('left');if(player.x>=50)player.moveLeft();
+        break
+      case 38: 
+        console.log('up');if(player.y>=50)player.moveUp();
+        break
+      case 39: 
+        console.log('right');if(player.x<450)player.moveRight();
+        break
+      case 40: 
+        console.log('down');if(player.y<450)player.moveDown();
+        break
+    }
+    if (player.x === treasure.x && player.y === treasure.y) {
+      console.log("Treasure catched")
+      treasure.setRandomPosition(width);
+    }
+    drawEverything();
+  }

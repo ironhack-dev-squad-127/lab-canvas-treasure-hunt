@@ -1,23 +1,24 @@
 class Character {
     constructor(x,y){
-    this.col=x;
-    this.row=y;
+    this.x=x;
+    this.y=y;
     this.orientation="up";
+    this.image=new Image();
     }
 moveUp(){
-    this.row++;
+    this.y-=50;
     this.orientation="up"
 }
 moveRight(){
-    this.col++;
+    this.x+=50;
     this.orientation="right"
 }
 moveDown(){
-    this.row++;
+    this.y+=50;
     this.orientation="down"
 }
 moveLeft(){
-    this.col++;
+    this.x-=50;
     this.orientation="left"
 }
 
